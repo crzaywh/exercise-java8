@@ -6,6 +6,7 @@
 
     <groupId>com.tigerwow</groupId>
     <artifactId>java8</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
 
