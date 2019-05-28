@@ -22,7 +22,7 @@
 *.rar
 
 #隐藏文件
-/.idea
+.idea/
 *.DS_Store
 *.iml
 
