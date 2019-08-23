@@ -1,5 +1,6 @@
 package com.tigerwow;
 
+
 /**
  * lambda-并行流
  *
@@ -8,6 +9,7 @@ package com.tigerwow;
 public class LambdaParallel {
 
     public static void main(String[] args) {
+
 
     }
 }
