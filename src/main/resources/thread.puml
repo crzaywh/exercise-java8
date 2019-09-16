@@ -1,0 +1,78 @@
+@startuml
+
+interface Executor{
+    void execute(Runnable command);
+}
+interface ExecutorService{
+    void shutdown();
+    boolean isTerminated();
+    <T> Future<T> submit(Callable<T> task);
+    Future<?> submit(Runnable task);
+}
+abstract class AbstractExecutorService
+class ThreadPoolExecutor{
+    final BlockingQueue<Runnable> workQueue;
+    final ReentrantLock mainLock;
+    final Condition termination = mainLock.newCondition();
+    ThreadPoolExecutor的4个创建线程池的构造函数
+}
+
+Executor <|-- ExecutorService
+ExecutorService <|-- AbstractExecutorService
+AbstractExecutorService <|-- ThreadPoolExecutor
+
+
+class Executors{
+    newFixedThreadPool(int var0)
+    newSingleThreadExecutor();
+    newCachedThreadPool();
+}
+note top of Executors
+1、newCachedThreadPool
+的最大线程数是Inter.MAX_VALUE
+如果在线程队列中堆积了大量的任务，
+就会导致OOM异常的发生
+
+2、new LinkedBlockingQueue()under
+默认大小也是Inter.MAX_VALUE
+end note
+
+interface Collection
+interface Queue{
+    add(E e);
+    offer(E e);
+    remove();
+    poll();
+    element();
+    peek();
+}
+interface BlockingQueue{
+    take();
+    poll();
+    remainingCapacity();
+}
+
+Collection <|-- Queue
+Queue <|-- BlockingQueue
+
+abstract AbstractCollection
+abstract class AbstractQueue
+
+class SynchronousQueue
+class LinkedBlockingQueue
+class ArrayBlockingQueue
+class DelayedWorkQueue
+class DelayQueue
+class ConcurrentLinkedQueue
+
+Collection<|-- AbstractCollection
+AbstractCollection <|-- AbstractQueue
+BlockingQueue <|-- AbstractQueue
+AbstractQueue<|-- SynchronousQueue
+AbstractQueue<|-- LinkedBlockingQueue
+AbstractQueue<|-- ArrayBlockingQueue
+AbstractQueue<|-- DelayedWorkQueue
+AbstractQueue<|-- DelayQueue
+AbstractQueue<|-- ConcurrentLinkedQueue
+
+@enduml

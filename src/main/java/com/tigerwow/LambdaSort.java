@@ -3,6 +3,8 @@ package com.tigerwow;
 import com.google.common.collect.Lists;
 import com.tigerwow.model.BandMember;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -42,6 +44,10 @@ public class LambdaSort {
 
 
 
+        System.out.println(bandMemberList);
+        LinkedList<Object> objects = Lists.newLinkedList();
+        objects.addAll(Collections.EMPTY_LIST);
+        objects.addAll(bandMemberList);
         System.out.println(bandMemberList);
     }
 }
