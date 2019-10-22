@@ -1,0 +1,48 @@
+@startuml
+interface Lock{
+    void lock();
+    void lockInterruptibly();
+    boolean tryLock();
+    boolean tryLock(long time, TimeUnit unit);
+    void unlock();
+    Condition newCondition();
+}
+
+class ReentrantLock{
+    ReentrantLock.Sync sync;
+}
+
+class WriteLock{
+    private final Sync sync;
+}
+class ReadLock{
+    private final Sync sync;
+}
+class ReadLockView
+class WriteLockView
+
+Lock <|-- WriteLock
+Lock <|-- ReadLock
+Lock <|-- ReadLockView
+Lock <|-- WriteLockView
+
+abstract class AbstractQueuedSynchronizer
+class Sync
+class NonfairSync
+class FairSync
+
+Lock <|-- ReentrantLock
+AbstractQueuedSynchronizer <|-- Sync
+Sync <|-- NonfairSync
+Sync <|-- FairSync
+
+interface ReadWriteLock{
+    Lock readLock();
+    Lock writeLock();
+}
+
+class ReentrantReadWriteLock{
+}
+
+ReadWriteLock <|-- ReentrantReadWriteLock
+@enduml
