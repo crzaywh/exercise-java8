@@ -1,6 +1,7 @@
 package com.tigerwow.thread;
 
 /**
+ * 线程通信
  * create by vvh 2019/10/22 上午10:49
  */
 public class ThreadNotifyTest {
